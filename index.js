@@ -59,6 +59,7 @@ io.sockets.on('connect',(socket)=>{
 		var clientInfo = new Object();
 		clientInfo.name = data;
 		clientInfo.clientId = socket.id;
+		console.log(clientInfo);
 		users.push(clientInfo);
 		// console.log(`${name} just jonied`);
 		io.sockets.emit('newUser',users);
@@ -74,11 +75,13 @@ io.sockets.on('connect',(socket)=>{
 
 	socket.on('disconnect',(data)=>{
 		console.log('someone logged off');
+		console.log(users);
 		for (let i = 0; i < users.length; i++){
 			var currentUser = users[i];
-
+			console.log(currentUser.clientId);
+			console.log(socket.id);
 			if (currentUser.clientId == socket.id){
-				users.pop(currentUser);
+				users.splice(i,1);
 				break;
 			}
 		}
