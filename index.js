@@ -34,10 +34,23 @@ var server = http.createServer((req,res)=>{
 				res.end(data);
 			}
 		});	
+	}else if(req.url == '/config.js'){
+		fs.readFile('config.js', 'utf-8', (error,data)=>{
+			// console.log(error);
+			// console.log(data);
+			if (error){
+				res.writeHead(500, {'content-type':'text/html'});
+				res.end('Internal Server Error');
+			}else{
+				res.writeHead(200,{'content-type':'application/javascript'});
+				res.end(data);
+			}
+		});
 	}
 });
 
 var io = socketio.listen(server);
+var users = [];
 // Handle socket connection
 io.sockets.on('connect',(socket)=>{
 	console.log("Someone connected via socket");
@@ -60,7 +73,7 @@ io.sockets.on('connect',(socket)=>{
 	});
 
 	socket.on('disconnect',(data)=>{
-		console.log('someone logged off')
+		console.log('someone logged off');
 		for (let i = 0; i < users.length; i++){
 			var currentUser = users[i];
 

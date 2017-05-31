@@ -37,6 +37,8 @@
 
 <script src="/socket.io/socket.io.js" type="text/javascript"></script>
 
+<script type="text/javascript" src="/config.js"></script>
+
 <script type="text/javascript">
 
 	console.log('browser javascript');
@@ -44,7 +46,7 @@
 	var name = prompt("What is your name?");
 	// console.log(io);
 	// console.log(window.io);
-	var socketio = io.connect('http://127.0.0.1:8080');
+	var socketio = io.connect(socketUrl);
 	// send an event to the server
 	socketio.emit('newClientInfo', name);
 
