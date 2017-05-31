@@ -1,0 +1,27 @@
+.container{
+	margin-top: 50px;
+}
+
+#users-wrapper{
+	height: 50vh;
+	border: 1px solid #cacaca;
+	background-color: #25CED1;
+	color: white;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+#messages{
+	height: 50vh;
+	border: 1px solid #cacaca;
+	font-size: 13px;
+}
+
+.time{
+	font-size: 12px;
+	color: #cacaca;
+}
+
+#submit-message{
+	margin-top: 20px;
+}

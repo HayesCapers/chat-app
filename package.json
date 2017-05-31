@@ -12,5 +12,8 @@
     "socketio"
   ],
   "author": "Hayes Capers",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "^2.0.1"
+  }
 }
